@@ -15,6 +15,7 @@ func init() {
 		UsageLine: "go-hep",
 		Short:     "go-hep manages the go-hep distribution",
 		Subcommands: []*commander.Command{
+			gohepMakeCmdDeps(),
 			gohepMakeCmdVersion(),
 		},
 		Flag: *flag.NewFlagSet("go-hep", flag.ExitOnError),
