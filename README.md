@@ -9,5 +9,5 @@ and thus create a release.
 ```sh
 $ go get github.com/go-hep/go-hep
 $ go-hep version
-0.0.1
+go-hep-0.0.1 (0000000)
 ```
