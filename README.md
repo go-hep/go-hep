@@ -50,6 +50,7 @@ go-hep - go-hep manages the go-hep distribution
 Commands:
 
     deps        print dependencies and exit
+    update      update a (list of) package(s) and exit
     version     print version and exit
 
 Use "go-hep help <command>" for more information about a command.
