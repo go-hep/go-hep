@@ -16,6 +16,7 @@ func init() {
 		Short:     "go-hep manages the go-hep distribution",
 		Subcommands: []*commander.Command{
 			gohepMakeCmdDeps(),
+			gohepMakeCmdUpdate(),
 			gohepMakeCmdVersion(),
 		},
 		Flag: *flag.NewFlagSet("go-hep", flag.ExitOnError),
