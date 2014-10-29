@@ -11,7 +11,7 @@ import (
 func gohepMakeCmdDeps() *commander.Command {
 	cmd := &commander.Command{
 		Run:       gohepRunCmdDeps,
-		UsageLine: "deps",
+		UsageLine: "deps [package1 [package2 [...]]]",
 		Short:     "print dependencies and exit",
 		Long: fmt.Sprintf(`
 print dependencies and exit.
