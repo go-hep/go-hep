@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"os/exec"
+	"sort"
 
 	"github.com/gonuts/commander"
 	"github.com/gonuts/flag"
@@ -27,24 +26,33 @@ ex:
 }
 
 func gohepRunCmdDeps(cmd *commander.Command, args []string) error {
-	pkgs := []string{"github.com/go-hep/go-hep"}
+	pkgs := Deps
 	if len(args) > 0 {
 		pkgs = args
 	}
 
-	subargs := []string{
-		"list",
-		"-f",
-		`{{ join .Deps "\n"}}`,
+	set := make(map[string]struct{})
+	for _, pkg := range pkgs {
+		deps, err := godeps(pkg)
+		if err != nil {
+			return err
+		}
+		for _, dep := range deps {
+			set[dep] = struct{}{}
+		}
 	}
-	subargs = append(subargs, pkgs...)
-	sub := exec.Command("go", subargs...)
-	sub.Stdout = os.Stdout
-	sub.Stderr = os.Stderr
-	sub.Stdin = os.Stdin
 
-	err := sub.Run()
-	return err
+	deps := make([]string, 0, len(set))
+	for dep := range set {
+		deps = append(deps, dep)
+	}
+
+	sort.Strings(deps)
+	for _, dep := range deps {
+		fmt.Printf("%s\n", dep)
+	}
+
+	return nil
 }
 
 // EOF

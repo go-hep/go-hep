@@ -1,15 +1,20 @@
 package main
 
-import (
-	_ "github.com/go-hep/fads"
-	_ "github.com/go-hep/fastjet"
-	_ "github.com/go-hep/fmom"
-	_ "github.com/go-hep/fwk"
-	_ "github.com/go-hep/hbook"
-	_ "github.com/go-hep/hepevt"
-	_ "github.com/go-hep/hepmc"
-	_ "github.com/go-hep/heppdt"
-	_ "github.com/go-hep/lhef"
-	_ "github.com/go-hep/random"
-	_ "github.com/go-hep/rio"
-)
+// Deps is the list of packages from which go-hep is made and defined.
+var Deps = []string{
+	"github.com/go-hep/fads/...",
+	"github.com/go-hep/fastjet/...",
+	"github.com/go-hep/fmom/...",
+	"github.com/go-hep/fwk/...",
+	"github.com/go-hep/hbook/...",
+	"github.com/go-hep/hepevt/...",
+	"github.com/go-hep/hepmc/...",
+	"github.com/go-hep/heppdt/...",
+	"github.com/go-hep/lhef/...",
+	"github.com/go-hep/random/...",
+	"github.com/go-hep/rio/...",
+	"github.com/go-hep/slha/...",
+
+	// go-hep release
+	"github.com/go-hep/go-hep",
+}
