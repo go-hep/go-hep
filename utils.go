@@ -10,6 +10,9 @@ import (
 )
 
 // godeps returns the list of packages package pkg depends on.
+//
+// FIXME(sbinet) use go/build.Context: build.Default.Import(pkg, "", build.AllowBinary)
+//  instead of shell-ing out. But: Context.Import doesn't handle "foo/bar/..."
 func godeps(pkg string) ([]string, error) {
 	args := []string{
 		"list",
